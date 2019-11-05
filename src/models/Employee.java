@@ -11,7 +11,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-@Table
+@Table(name = "employees")
 @NamedQueries({
         @NamedQuery(name = "getAllEmployees", query = "SELECT e FROM Employee AS e ORDER BY e.id DESC"),
         @NamedQuery(name = "getEmployeesCount", query = "SELECT COUNT(e) FROM Employee AS e"),
@@ -43,7 +43,7 @@ public class Employee {
     @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;
 
-    @Column(name = "dalete_flag", nullable = false)
+    @Column(name = "delete_flag", nullable = false)
     private Integer delete_flag;
 
     public Integer getId() {
