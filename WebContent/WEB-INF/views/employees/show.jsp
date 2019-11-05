@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<c:import url="../layout/app.jsp">
+<c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
         <c:choose>
             <c:when test="${employee!=null }">
@@ -12,7 +12,7 @@
                     <tbody>
                         <tr>
                             <th>社員番号</th>
-                            <td><c:out value="${ eployee.code}" /></td>
+                            <td><c:out value="${ employee.code}" /></td>
                         </tr>
                         <tr>
                             <th>氏名</th>

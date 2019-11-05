@@ -73,6 +73,11 @@ public class LoginServlet extends HttpServlet {
 
             em.close();
 
+            if(e!=null){
+                check_result=true;
+            }
+        }
+
             if (!check_result) {
                 request.setAttribute("_token", request.getSession().getId());
                 request.setAttribute("hasError", true);
@@ -89,5 +94,3 @@ public class LoginServlet extends HttpServlet {
             }
         }
     }
-
-}
