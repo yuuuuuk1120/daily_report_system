@@ -35,6 +35,9 @@ public class EmployeesDestroyServlet extends HttpServlet {
             throws ServletException, IOException {
         String _token = (String) request.getParameter("_token");
 
+        System.out.println("token:" + _token);
+        System.out.println("Session token:" + request.getSession().getId());
+
         if (_token != null && _token.equals(request.getSession().getId())) {
             EntityManager em = DBUtil.createEntityManager();
 
