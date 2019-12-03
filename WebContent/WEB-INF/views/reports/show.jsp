@@ -36,6 +36,10 @@
                             <td><fmt:formatDate value="${report.updated_at }"
                                     pattern="yyyy-MM-dd HH:mm:ss" /></td>
                         </tr>
+                        <tr>
+                            <th>皆の反応</th>
+                            <td></td>
+                        </tr>
                     </tbody>
                 </table>
 
