@@ -51,8 +51,8 @@ public class Report {
     @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;
 
-    @Column(name = "like", nullable = false)
-    private Integer like;
+    @Column(name = "like_value", nullable = false)
+    private Integer like_value;
 
     public Integer getId() {
         return id;
@@ -110,12 +110,12 @@ public class Report {
         this.updated_at = updated_at;
     }
 
-    public Integer getLike() {
-        return like;
+    public Integer getLike_value() {
+        return like_value;
     }
 
-    public void setLike(Integer like) {
-        this.like = like;
+    public void setLike_value(Integer like_value) {
+        this.like_value = like_value;
     }
 
 }

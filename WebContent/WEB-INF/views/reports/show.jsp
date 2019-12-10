@@ -38,7 +38,9 @@
                         </tr>
                         <tr>
                             <th>皆の反応</th>
-                            <td></td>
+                            <td>イイネ！<c:out value="${report.like_value }" />件
+                            </td>
+
                         </tr>
                     </tbody>
                 </table>

@@ -17,20 +17,23 @@
                     <th class="report_date">日付</th>
                     <th class="report_title">タイトル</th>
                     <th class="report_action">操作</th>
-                    <th class="report_reaction">皆の反応</th>
+                    <th class="report_like">皆の反応</th>
                 </tr>
                 <c:forEach var="report" items="${reports }" varStatus="status">
                     <tr class="row${status.count%2 }">
-                        <td class="report_name"><c:out
-                                value="${report.employee.name }" /></td>
-                        <td class="report_date"><fmt:formatDate
-                                value='${report.report_date }' pattern='yyyy-MM-dd' /></td>
+                        <td class="report_name">
+                            <c:out value="${report.employee.name }" /></td>
+                        <td class="report_date">
+                            <fmt:formatDate value='${report.report_date }' pattern='yyyy-MM-dd' /></td>
                         <td class="report_title">${report.title }</td>
-                        <td class="report_action"><a
-                            href="<c:url value='/reports/show?id=${report.id }'/>"> 詳細を見る</a></td>
-                        <td class="report_reaction">
-                            <form action="like" method="POST">
-                                <input type="button" name="like" value="イイネ！">
+                        <td class="report_action">
+                            <a href="<c:url value='/reports/show?id=${report.id }'/>"> 詳細を見る</a>
+                        </td>
+                        <td class="report_like">
+                            <form action="<c:url value='/reports/like?id=${report.id }'/>" method="POST">
+                                <input type="hidden" value="${report.id }" name="report_like">
+                                <input type="submit" value="イイネ！">
+                                <c:out value="${report.like_value }" />件
                             </form>
                         </td>
                     </tr>
