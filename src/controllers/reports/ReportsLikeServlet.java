@@ -43,16 +43,50 @@ public class ReportsLikeServlet extends HttpServlet {
             throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
-        //サーブレットで日報IDを受け取る
-        //受け取ったIDで日報を検索
-        Report r = em.find(Report.class, Integer.parseInt(request.getParameter("id")));
-        System.out.println(request.getParameter("id"));
+        //        //サーブレットで日報IDを受け取る
+        //        //受け取ったIDで日報を検索
+        //        Report r = em.find(Report.class, Integer.parseInt(request.getParameter("id")));
+        //        System.out.println(request.getParameter("id"));
+        //
+        //        //検索した日報のいいねを一つ増やす
+        //        Integer like_count = (Integer.parseInt(request.getParameter("report_like")));
+        //        int click = r.getLike_value();
+        //        if (like_count > 0)
+        //            click++;
+        //        r.setLike_value(click);
 
-        //検索した日報のいいねを一つ増やす
-        Integer like_count = (Integer.parseInt(request.getParameter("report_like")));
+        //        int click = r.getLike_value();
+        //        if (r.getId() == Integer.parseInt(request.getParameter("id"))) {
+        //            click++;
+        //        } else if (r.getId() == Integer.parseInt(request.getParameter("id2"))) {
+        //            click--;
+        //        }
+        //
+        //        r.setLike_value(click);
+
+        String i1 = request.getParameter("id");
+        String i2 = request.getParameter("id2");
+
+        boolean isLike = (i1 != null);
+
+        String i;
+        if (isLike) {
+            i = i1;
+        } else {
+            i = i2;
+        }
+
+
+        Report r = em.find(Report.class, Integer.parseInt(i));
+        System.out.println(i);
+
+        //クリックして増減
         int click = r.getLike_value();
-        if (like_count > 0)
+        if (isLike) {
             click++;
+        } else {
+            click--;
+        }
         r.setLike_value(click);
 
         //DBを更新
@@ -60,9 +94,9 @@ public class ReportsLikeServlet extends HttpServlet {
         em.getTransaction().commit();//DB新規登録を確定
         em.close();
 
-        request.setAttribute("report", r);
-        request.setAttribute("report_like", click);
-        request.getSession().removeAttribute("report_id");
+        //        request.setAttribute("report", r);
+        //        request.setAttribute("report_like", click);
+        //        request.getSession().removeAttribute("report_id");
 
         response.sendRedirect(request.getContextPath() + "/reports/index");
 

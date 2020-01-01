@@ -54,6 +54,12 @@ public class Report {
     @Column(name = "like_value", nullable = false)
     private Integer like_value;
 
+    @Column(name = "check_value", nullable = false)
+    private Integer check_value;
+
+    @Column(name = "check_name", nullable = false)
+    private String check_name;
+
     public Integer getId() {
         return id;
     }
@@ -116,6 +122,22 @@ public class Report {
 
     public void setLike_value(Integer like_value) {
         this.like_value = like_value;
+    }
+
+    public Integer getCheck_value() {
+        return check_value;
+    }
+
+    public void setCheck_value(Integer check_value) {
+        this.check_value = check_value;
+    }
+
+    public String getCheck_name() {
+        return check_name;
+    }
+
+    public void setCheck_name(String check_name) {
+        this.check_name = check_name;
     }
 
 }

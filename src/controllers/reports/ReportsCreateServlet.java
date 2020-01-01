@@ -61,6 +61,8 @@ public class ReportsCreateServlet extends HttpServlet {
             r.setUpdated_at(currentTime);
 
             r.setLike_value(0);
+            r.setCheck_value(0);
+            r.setCheck_name("まだなし");
 
             List<String> errors = ReportValidator.validate(r);
             if (errors.size() > 0) {
